@@ -78,3 +78,36 @@ memoria, información de tareas y una lista de procesos. Las teclas de función
 permiten acceder a acciones como buscar, filtrar y ordenar la lista.
 
 ![Interfaz de htop](../img/1g.png)
+
+## Ejercicio: guardar los procesos con mayor consumo de CPU
+
+Recopila los **10 procesos que más CPU consumen** en cada una de **3 muestras
+consecutivas**, separadas por 3 segundos, y envía el resultado al equipo del
+proyecto. El siguiente comando ordena los procesos por CPU, selecciona las diez
+primeras filas de cada muestra y guarda la salida en el equipo remoto:
+
+```bash
+top -b -n 3 -d 3 -o %CPU \
+  | awk '/PID/ {l=11} l && l--' \
+  | ssh usuario@IP_PC_PROYECTO "cat > /ruta/destino/top_10_cpu.txt"
+```
+
+![Recopilación de los diez procesos con mayor uso de CPU en tres muestras](../img/1h.png)
+
+### ¿Qué hace cada opción?
+
+| Fragmento | Función |
+| --- | --- |
+| `top` | Muestra información de procesos y del sistema. |
+| `-b` | Ejecuta `top` en modo por lotes, adecuado para procesar su salida. |
+| `-n 3` | Genera tres muestras y termina. |
+| `-d 3` | Espera 3 segundos entre muestras. |
+| `-o %CPU` | Ordena la lista por uso de CPU, de mayor a menor. |
+| `awk '/PID/ {l=11} l && l--'` | Detecta cada cabecera `PID` y muestra esa cabecera junto con las diez filas siguientes. Así selecciona diez procesos por muestra. |
+| `ssh usuario@IP_PC_PROYECTO` | Conecta por SSH al equipo remoto. Sustituye `usuario` y `IP_PC_PROYECTO` por los datos reales del equipo. |
+| `cat > /ruta/destino/top_10_cpu.txt` | Escribe en ese archivo remoto todo lo recibido. Sustituye la ruta por una carpeta existente y escribible. Si el archivo ya existe, se sobrescribe. |
+
+El archivo resultante contiene hasta **30 filas de procesos** (10 por muestra),
+además de una cabecera para cada muestra. Para ejecutarlo, necesitas poder
+conectarte por SSH al equipo remoto y tener permisos de escritura en la ruta de
+destino.
