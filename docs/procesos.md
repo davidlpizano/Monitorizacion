@@ -79,6 +79,36 @@ permiten acceder a acciones como buscar, filtrar y ordenar la lista.
 
 ![Interfaz de htop](../img/1g.png)
 
+## Monitor de recursos con `atop`
+
+`atop` muestra en una interfaz interactiva el uso de recursos del sistema y la
+actividad de los procesos. Inícialo con:
+
+```bash
+atop
+```
+
+La vista de procesos permite consultar, entre otros datos, el consumo de CPU y
+la actividad de cada proceso:
+
+![Vista de procesos y consumo de CPU en atop](../img/1j.png)
+
+### Terminar procesos por nombre con `pkill`
+
+`pkill` busca procesos por nombre y les envía una señal. Por ejemplo:
+
+```bash
+pkill -9 yes
+```
+
+`-9` envía `SIGKILL`, que termina el proceso inmediatamente y no le permite
+cerrarse de forma ordenada. Úsalo solo cuando sea necesario: si un proceso
+guarda datos o realiza una tarea, puede perderse ese trabajo. Normalmente es
+preferible intentar primero `pkill yes`, que envía `SIGTERM` y permite al
+proceso finalizar limpiamente.
+
+![Ejemplo de terminación forzada de procesos yes](../img/1k.png)
+
 ## Ejercicio: guardar los procesos con mayor consumo de CPU
 
 Recopila los **10 procesos que más CPU consumen** en cada una de **3 muestras

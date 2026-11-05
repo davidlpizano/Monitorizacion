@@ -61,10 +61,3 @@ df -h .
 # Consultar el uso de inodos
 df -i
 ```
-
-## Vista interactiva con `htop`
-
-`htop` también muestra indicadores de memoria y swap que se actualizan en
-tiempo real:
-
-![Indicadores de memoria y swap en htop](../img/1i.png)
