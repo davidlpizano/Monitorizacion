@@ -1,5 +1,7 @@
 # Monitorización
 
+![Ilustración de un panel de monitorización](img/monitorizacion.svg)
+
 Material de referencia y prácticas sobre la monitorización de sistemas y sus
 recursos.
 
@@ -7,9 +9,9 @@ recursos.
 
 | Tema | Descripción |
 | --- | --- |
-| **Procesos** | Seguimiento de procesos y de su actividad. |
-| **Memoria y disco** | Uso de memoria, espacio de almacenamiento y rendimiento del disco. |
-| **Red** | Supervisión del tráfico y la actividad de red. |
+| [**Procesos**](docs/procesos.md) | Seguimiento de procesos y de su actividad. |
+| [**Memoria y disco**](docs/memoria-y-disco.md) | Uso de memoria, espacio de almacenamiento y rendimiento del disco. |
+| [**Red**](docs/red.md) | Supervisión del tráfico y la actividad de red. |
 
 ## Estado
 
