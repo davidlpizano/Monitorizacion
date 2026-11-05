@@ -58,3 +58,23 @@ Pulsa estas teclas mientras está abierto para ordenar la lista:
 | `R` | Invierte el sentido del orden actual. |
 
 ![Ejemplo de salida de top](../img/1e.png)
+
+### Guardar la salida de `top`
+
+El modo por lotes (`-b`) permite ejecutar `top` sin la interfaz interactiva.
+Con `-n 3` se recopilan tres actualizaciones y `>` guarda la salida en `top.info`
+(si el archivo ya existe, se sobrescribe):
+
+```bash
+top -b -n 3 > top.info
+```
+
+![Ejecución de top en modo por lotes guardando tres actualizaciones](../img/1f.png)
+
+## Monitor interactivo con `htop`
+
+`htop` es un monitor interactivo de procesos. Muestra indicadores de CPU y
+memoria, información de tareas y una lista de procesos. Las teclas de función
+permiten acceder a acciones como buscar, filtrar y ordenar la lista.
+
+![Interfaz de htop](../img/1g.png)
