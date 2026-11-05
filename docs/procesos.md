@@ -53,6 +53,8 @@ Pulsa estas teclas mientras está abierto para ordenar la lista:
 | --- | --- |
 | `M` | Por porcentaje de memoria (`%MEM`). |
 | `P` | Por porcentaje de CPU (`%CPU`). |
-| `T` | Por tiempo acumulado de CPU. |
+| `T` | Por tiempo acumulado de CPU (`TIME+`). |
+| `N` | Por identificador de proceso (`PID`). |
+| `R` | Invierte el sentido del orden actual. |
 
 ![Ejemplo de salida de top](../img/1e.png)
